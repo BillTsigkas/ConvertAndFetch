@@ -1,2 +1,0 @@
-||bsky.app^
-||bsky.social^
