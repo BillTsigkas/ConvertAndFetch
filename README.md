@@ -1,5 +1,5 @@
 # ConvertAndFetch
-Convert and fetch blocking lists in a format Pi‑hole can read.
+Convert and fetch blocking lists to wildcards for Pihole and AdBlocks format.
 
 ## ConvertAndFetch Blocklists
 
