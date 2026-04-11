@@ -8,10 +8,8 @@ from pathlib import Path
 owner_repo = os.environ.get("GITHUB_REPOSITORY", "BillTsigkas/ConvertAdnFetch")
 branch = os.environ.get("GITHUB_REF_NAME", "main")
 
-# Files to ignore in the listing
 IGNORE = {"whitelist.txt", "changelog.txt", "README.md"}
 
-# Map filenames to nicer display names for special cases
 SPECIAL_NAMES = {
     "500px": "500px",
     "9gag": "9GAG",
@@ -44,7 +42,9 @@ def friendly_name(filename):
 
 def raw_url(filename):
     owner, repo = owner_repo.split('/')
+    filename = filename.lstrip('./')
     return f"https://raw.githubusercontent.com/{owner}/{repo}/{branch}/{filename}"
+
 
 def main():
     files = sorted([p.name for p in Path('.').glob('*.txt') if p.name not in IGNORE])
