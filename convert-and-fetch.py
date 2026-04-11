@@ -6,6 +6,9 @@ from urllib.parse import urlparse
 from datetime import datetime
 import os
 
+if not isinstance(UPSTREAM_URLS, list):
+    raise SystemExit("UPSTREAM_URLS must be a list of URL strings")
+
 UPSTREAM_URLS = [
 [
     "https://cebeerre.github.io/dnsblocklists/webservices/4chan_asterisk.txt",
@@ -89,6 +92,7 @@ def write_file(path, lines):
             f.write(l + '\n')
 
 def main():
+    print(f"DEBUG: will fetch {len(UPSTREAM_URLS)} upstream URLs")
     whitelist = load_whitelist(WHITELIST_FILE)
     changelog = []
     total_written = 0
