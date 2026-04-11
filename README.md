@@ -10,5 +10,3 @@ Click the **Raw** link to copy the URL and add it to Pi‑hole → Settings → 
 | --- | --- |
 
 ---
-
-**Tip:** After the workflow runs, open any of the Raw links in your browser, copy the URL, and paste it into Pi‑hole → Settings → Blocklists.
