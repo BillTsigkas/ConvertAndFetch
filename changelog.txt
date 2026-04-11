@@ -1,19 +1,2 @@
-2026-04-11T19:55:03.894926Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/4chan_asterisk.txt	4chan_asterisk.txt	3
-2026-04-11T19:55:04.074197Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/500px_asterisk.txt	500px_asterisk.txt	2
-2026-04-11T19:55:04.172312Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/9gag_asterisk.txt	9gag_asterisk.txt	2
-2026-04-11T19:55:04.255984Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/bluesky_asterisk.txt	bluesky_asterisk.txt	2
-2026-04-11T19:55:04.356405Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/facebook_asterisk.txt	facebook_asterisk.txt	440
-2026-04-11T19:55:04.439612Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/linkedin_asterisk.txt	linkedin_asterisk.txt	16
-2026-04-11T19:55:04.509991Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/mail_ru_asterisk.txt	mail_ru_asterisk.txt	3
-2026-04-11T19:55:04.601146Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/ok_asterisk.txt	ok_asterisk.txt	6
-2026-04-11T19:55:04.666611Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/pinterest_asterisk.txt	pinterest_asterisk.txt	49
-2026-04-11T19:55:04.750947Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/reddit_asterisk.txt	reddit_asterisk.txt	5
-2026-04-11T19:55:04.833890Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/snapchat_asterisk.txt	snapchat_asterisk.txt	6
-2026-04-11T19:55:04.920509Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/tiktok_asterisk.txt	tiktok_asterisk.txt	31
-2026-04-11T19:55:04.986135Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/tinder_asterisk.txt	tinder_asterisk.txt	3
-2026-04-11T19:55:05.093275Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/twitch_asterisk.txt	twitch_asterisk.txt	6
-2026-04-11T19:55:05.156178Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/twitter_asterisk.txt	twitter_asterisk.txt	23
-2026-04-11T19:55:05.245114Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/vk_asterisk.txt	vk_asterisk.txt	20
-2026-04-11T19:55:05.314828Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/whatsapp_asterisk.txt	whatsapp_asterisk.txt	11
-2026-04-11T19:55:05.375397Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/youtube_asterisk.txt	youtube_asterisk.txt	175
-2026-04-11T19:55:05.375450Z	MASTER	TOTAL_ENTRIES	803
+2026-04-11T20:33:32.008474Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/youtube_asterisk.txt	generated/youtube.txt	175
+2026-04-11T20:33:32.008519Z	MASTER	TOTAL_ENTRIES	175

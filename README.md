@@ -8,24 +8,6 @@ Click the **Raw** link to copy the URL and add it to Pi‑hole → Settings → 
 
 | **Service** | **Raw link** |
 | --- | --- |
-| **4chan** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/4chan_asterisk.txt) |
-| **500px** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/500px_asterisk.txt) |
-| **9GAG** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/9gag_asterisk.txt) |
-| **Bluesky** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/bluesky_asterisk.txt) |
-| **Facebook** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/facebook_asterisk.txt) |
-| **LinkedIn** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/linkedin_asterisk.txt) |
-| **Mail.ru** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/mail_ru_asterisk.txt) |
-| **OK** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/ok_asterisk.txt) |
-| **Pinterest** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/pinterest_asterisk.txt) |
-| **Reddit** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/reddit_asterisk.txt) |
-| **Snapchat** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/snapchat_asterisk.txt) |
-| **TikTok** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/tiktok_asterisk.txt) |
-| **Tinder** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/tinder_asterisk.txt) |
-| **Twitch** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/twitch_asterisk.txt) |
-| **Twitter** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/twitter_asterisk.txt) |
-| **VK** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/vk_asterisk.txt) |
-| **WhatsApp** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/whatsapp_asterisk.txt) |
-| **YouTube** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/youtube_asterisk.txt) |
 
 ---
 
