@@ -36,6 +36,16 @@ jobs:
           rm -rf generated || true
           mkdir -p generated
 
+      - name: Clean old root-level generated files
+        run: |
+          rm -f *_asterisk.txt || true
+          # remove any other root-level .txt that should live in generated/
+          for f in *.txt; do
+            if [ -f "$f" ] && [ "$f" != "changelog.txt" ] && [ "$f" != "whitelist.txt" ]; then
+              rm -f "$f" || true
+            fi
+          done
+
       - name: Run converter
         run: python3 convert-and-fetch.py
 
