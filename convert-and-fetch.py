@@ -2,6 +2,8 @@
 # convert-and-fetch.py
 import re
 import urllib.request
+import time
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
 from datetime import datetime
 import os
@@ -34,10 +36,30 @@ if not isinstance(UPSTREAM_URLS, list):
 WHITELIST_FILE = "whitelist.txt"   # optional, keep in repo to exclude domains
 CHANGELOG_FILE = "changelog.txt"
 
-def fetch_url(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "github-actions/convert-script"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return resp.read().decode('utf-8', errors='ignore')
+def fetch_url(url, retries=2, backoff=1.0):
+    last_exc = None
+    for attempt in range(1, retries + 2):
+        try:
+            print(f"DEBUG: fetching ({attempt}) {url}")
+            req = urllib.request.Request(url, headers={"User-Agent": "github-actions/convert-script"})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                status = getattr(resp, "status", None)
+                final_url = getattr(resp, "geturl", lambda: url)()
+                print(f"DEBUG: fetched {url} -> {final_url} (status={status})")
+                return resp.read().decode('utf-8', errors='ignore')
+        except HTTPError as he:
+            last_exc = he
+            print(f"DEBUG: HTTPError for {url}: code={he.code} reason={he.reason}")
+            if 400 <= getattr(he, "code", 0) < 500 and he.code != 429:
+                break
+        except URLError as ue:
+            last_exc = ue
+            print(f"DEBUG: URLError for {url}: {ue}")
+        except Exception as e:
+            last_exc = e
+            print(f"DEBUG: Exception fetching {url}: {e}")
+        time.sleep(backoff * attempt)
+    raise last_exc or RuntimeError(f"Failed to fetch {url}")
 
 def normalize_line(line):
     line = line.strip()
@@ -95,14 +117,13 @@ def main():
     changelog = []
     total_written = 0
     for url in UPSTREAM_URLS:
-        try:
-            if isinstance(url, (list, tuple)):
-                raise ValueError("UPSTREAM_URLS contains a list/tuple element instead of a string")
-            raw = fetch_url(url)
-        except Exception as e:
-            changelog.append(f"{datetime.utcnow().isoformat()}Z\tERROR\t{url}\t{e}")
-            print(f"DEBUG: failed to fetch {url}: {e}")
-            continue
+    print(f"DEBUG: starting fetch for {url}")
+    try:
+        raw = fetch_url(url)
+    except Exception as e:
+        changelog.append(f"{datetime.utcnow().isoformat()}Z\tERROR\t{url}\t{e}")
+        print(f"DEBUG: failed to fetch {url}: {e}")
+        continue
 
         seen = set()
         converted = []
