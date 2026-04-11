@@ -19,7 +19,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # ensure the action leaves credentials so git push can use GITHUB_TOKEN
           persist-credentials: true
           fetch-depth: 0
 
@@ -28,18 +27,34 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Make converter executable
-        run: chmod +x convert-and-fetch.py
+      - name: Prepare workspace
+        run: |
+          # ensure scripts are executable and a clean generated/ folder exists
+          chmod +x convert-and-fetch.py || true
+          chmod +x generate_readme.py || true
+          rm -f *_asterisk.txt || true
+          rm -rf generated || true
+          mkdir -p generated
 
       - name: Run converter
         run: python3 convert-and-fetch.py
 
-      - name: Sort and dedupe outputs
+      - name: Sort and dedupe outputs in generated
         run: |
-          for f in *.txt; do
-            if [ -f "$f" ] && [ "$f" != "whitelist.txt" ]; then
+          for f in generated/*.txt; do
+            if [ -f "$f" ]; then
               sort -u "$f" -o "$f"
             fi
+          done
+
+      - name: List generated files (debug)
+        run: |
+          echo "=== generated files ==="
+          ls -la generated || true
+          echo "=== sample heads ==="
+          for f in generated/*.txt; do
+            echo "---- $f ----"
+            head -n 5 "$f" || true
           done
 
       - name: Generate README with table of raw links
@@ -47,9 +62,7 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_REF_NAME: ${{ github.ref_name || 'main' }}
         run: |
-          chmod +x generate_readme.py || true
           python3 generate_readme.py
-
 
       - name: Configure git user
         run: |
@@ -60,8 +73,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git add README.md *.txt changelog.txt || true
-          # if there are no staged changes, exit cleanly
+          git add README.md generated/*.txt changelog.txt || true
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
