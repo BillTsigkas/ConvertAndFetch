@@ -8,6 +8,24 @@ Click the **Raw** link to copy the URL and add it to Pi‑hole → Settings → 
 
 | **Service** | **Raw link** |
 | --- | --- |
+| **4chan** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/4chan.txt) |
+| **500px** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/500px.txt) |
+| **9GAG** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/9gag.txt) |
+| **Bluesky** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/bluesky.txt) |
+| **Facebook** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/facebook.txt) |
+| **LinkedIn** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/linkedin.txt) |
+| **Mail.ru** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/mail_ru.txt) |
+| **OK** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/ok.txt) |
+| **Pinterest** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/pinterest.txt) |
+| **Reddit** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/reddit.txt) |
+| **Snapchat** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/snapchat.txt) |
+| **TikTok** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/tiktok.txt) |
+| **Tinder** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/tinder.txt) |
+| **Twitch** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/twitch.txt) |
+| **Twitter** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/twitter.txt) |
+| **VK** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/vk.txt) |
+| **WhatsApp** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/whatsapp.txt) |
+| **YouTube** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/youtube.txt) |
 
 ---
 
