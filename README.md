@@ -23,7 +23,7 @@ Click the **Raw** link to copy the URL and add it to Pi‑hole → Settings → 
 - **Twitch** —————[Link](https://raw.githubusercontent.com/BillTsigkas/ConvertAdnFetch/main/twitch.txt)
 - **Twitter** ————[Link](https://raw.githubusercontent.com/BillTsigkas/ConvertAdnFetch/main/twitter.txt)
 - **YouTube** ————[Link](https://raw.githubusercontent.com/BillTsigkas/ConvertAdnFetch/main/youtube.txt)
-- **VK** —————————[Link](https://raw.githubusercontent.com/BillTsigkas/ConvertAdnFetch/main/vk.txt)
+- **VK** ———————[Link](https://raw.githubusercontent.com/BillTsigkas/ConvertAdnFetch/main/vk.txt)
 - **WhatsApp** ———[Link](https://raw.githubusercontent.com/BillTsigkas/ConvertAdnFetch/main/whatsapp.txt)
 
 
