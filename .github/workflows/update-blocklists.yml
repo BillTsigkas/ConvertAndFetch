@@ -60,12 +60,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git add . || true
+          git add README.md *.txt changelog.txt || true
           # if there are no staged changes, exit cleanly
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
           git commit -m "Weekly update: convert upstream wildcard lists ($(date -u +%Y-%m-%d))"
-          # push using the token provided by actions/checkout
           git push
