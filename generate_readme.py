@@ -30,7 +30,6 @@ SPECIAL_NAMES = {
     "tinder": "Tinder",
     "twitch": "Twitch",
     "twitter": "Twitter",
-    "onlyfans": "OnlyFans",
     "bluesky": "Bluesky"
 }
 
