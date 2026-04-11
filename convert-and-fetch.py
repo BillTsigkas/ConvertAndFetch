@@ -116,14 +116,15 @@ def main():
     whitelist = load_whitelist(WHITELIST_FILE)
     changelog = []
     total_written = 0
+
     for url in UPSTREAM_URLS:
-    print(f"DEBUG: starting fetch for {url}")
-    try:
-        raw = fetch_url(url)
-    except Exception as e:
-        changelog.append(f"{datetime.utcnow().isoformat()}Z\tERROR\t{url}\t{e}")
-        print(f"DEBUG: failed to fetch {url}: {e}")
-        continue
+        print(f"DEBUG: starting fetch for {url}")
+        try:
+            raw = fetch_url(url)
+        except Exception as e:
+            changelog.append(f"{datetime.utcnow().isoformat()}Z\tERROR\t{url}\t{e}")
+            print(f"DEBUG: failed to fetch {url}: {e}")
+            continue
 
         seen = set()
         converted = []
@@ -138,18 +139,19 @@ def main():
                 seen.add(out)
                 converted.append(out)
 
-    outname = safe_output_name(url)           
-    outpath = os.path.join('generated', outname)
-    converted_sorted = sorted(converted)
-    write_file(outpath, converted_sorted)
-    changelog.append(f"{datetime.utcnow().isoformat()}Z\tOK\t{url}\t{outpath}\t{len(converted_sorted)}")
-    print(f"DEBUG: wrote {len(converted_sorted)} entries to {outpath}")
-    total_written += len(converted_sorted)
+        outname = safe_output_name(url)
+        outpath = os.path.join('generated', outname)
+        converted_sorted = sorted(converted)
+        write_file(outpath, converted_sorted)
+        changelog.append(f"{datetime.utcnow().isoformat()}Z\tOK\t{url}\t{outpath}\t{len(converted_sorted)}")
+        print(f"DEBUG: wrote {len(converted_sorted)} entries to {outpath}")
+        total_written += len(converted_sorted)
 
     changelog.append(f"{datetime.utcnow().isoformat()}Z\tMASTER\tTOTAL_ENTRIES\t{total_written}")
     write_file(CHANGELOG_FILE, changelog)
     print("DEBUG: finished convert-and-fetch.py")
     print(f"Done. Wrote total {total_written} entries across sources.")
+
 
 if __name__ == "__main__":
     main()
