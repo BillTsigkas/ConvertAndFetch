@@ -4,7 +4,6 @@ import os
 import re
 from pathlib import Path
 
-# Use GitHub environment variables when run in Actions
 owner_repo = os.environ.get("GITHUB_REPOSITORY", "BillTsigkas/ConvertAdnFetch")
 branch = os.environ.get("GITHUB_REF_NAME", "main")
 
@@ -28,13 +27,15 @@ SPECIAL_NAMES = {
     "tinder": "Tinder",
     "twitch": "Twitch",
     "twitter": "Twitter",
+    "onlyfans": "OnlyFans",
     "bluesky": "Bluesky"
 }
 
 def friendly_name(filename):
-    name = filename.rsplit('.', 1)[0]
+    # filename may include path like "generated/4chan.txt"
+    name = filename.rsplit('/', 1)[-1]
+    name = name.rsplit('.', 1)[0]
     name = re.sub(r'(_pihole|_asterisk)$', '', name, flags=re.I)
-    name = name.strip()
     key = name.lower()
     if key in SPECIAL_NAMES:
         return SPECIAL_NAMES[key]
@@ -45,12 +46,31 @@ def raw_url(filename):
     filename = filename.lstrip('./')
     return f"https://raw.githubusercontent.com/{owner}/{repo}/{branch}/{filename}"
 
+def find_txt_files():
+    candidates = []
+    # search generated/ first, then repo root
+    for base in (Path('generated'), Path('.')):
+        if not base.exists():
+            continue
+        for p in base.glob('*.txt'):
+            if p.name in IGNORE:
+                continue
+            candidates.append(str(p).lstrip('./'))
+    # also include one-level subfolders if any
+    for sub in Path('.').glob('*/'):
+        if sub.name in ('.github', 'generated'):
+            continue
+        for p in sub.glob('*.txt'):
+            if p.name in IGNORE:
+                continue
+            candidates.append(str(p).lstrip('./'))
+    # unique and sorted
+    unique = sorted(dict.fromkeys(candidates))
+    return unique
 
 def main():
-    files = sorted([p.name for p in Path('.').glob('*.txt') if p.name not in IGNORE])
-    entries = []
-    for f in files:
-        entries.append((friendly_name(f), raw_url(f)))
+    files = find_txt_files()
+    entries = [(friendly_name(f), raw_url(f)) for f in files]
     entries.sort(key=lambda x: x[0].lower())
     lines = []
     lines.append("# ConvertAndFetch")
