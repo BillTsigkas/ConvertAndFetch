@@ -42,6 +42,15 @@ jobs:
             fi
           done
 
+      - name: Generate README with table of raw links
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF_NAME: ${{ github.ref_name || 'main' }}
+        run: |
+          chmod +x generate_readme.py || true
+          python3 generate_readme.py
+
+
       - name: Configure git user
         run: |
           git config user.name "github-actions[bot]"
