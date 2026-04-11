@@ -1,2 +1,2 @@
-2026-04-11T20:33:32.008474Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/youtube_asterisk.txt	generated/youtube.txt	175
-2026-04-11T20:33:32.008519Z	MASTER	TOTAL_ENTRIES	175
+2026-04-11T20:35:53.540469Z	OK	https://cebeerre.github.io/dnsblocklists/webservices/youtube_asterisk.txt	generated/youtube.txt	175
+2026-04-11T20:35:53.540517Z	MASTER	TOTAL_ENTRIES	175
