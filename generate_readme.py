@@ -83,7 +83,6 @@ def main():
     for name, url in entries:
         lines.append(f"| **{name}** | [Raw]({url}) |")
     lines.append("\n---\n")
-    lines.append("**Tip:** After the workflow runs, open any of the Raw links in your browser, copy the URL, and paste it into Pi‑hole → Settings → Blocklists.")
     Path("README.md").write_text("\n".join(lines), encoding="utf-8")
     print(f"Wrote README.md with {len(entries)} entries.")
 
