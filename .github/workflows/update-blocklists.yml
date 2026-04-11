@@ -1,0 +1,47 @@
+name: Weekly update blocklists
+
+on:
+  schedule:
+    - cron: '0 3 * * 1' # weekly Monday 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Make converter executable
+        run: |
+          chmod +x convert-and-fetch.py
+
+      - name: Run converter
+        run: |
+          python3 convert-and-fetch.py
+
+      - name: Sort and dedupe outputs
+        run: |
+          for f in *.txt; do
+            if [ -f "$f" ] && [ "$f" != "whitelist.txt" ]; then
+              sort -u "$f" -o "$f"
+            fi
+          done
+
+      - name: Commit and push changes
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          git add . || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Weekly update: convert upstream wildcard lists ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "No changes to commit"
+          fi
