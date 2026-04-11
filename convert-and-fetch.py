@@ -69,13 +69,19 @@ def load_whitelist(path):
         return set()
 
 def safe_output_name(url):
+    # derive filename from URL, remove _asterisk before extension, ensure .txt
     name = url.rstrip('/').split('/')[-1]
     if not name:
         name = "source.txt"
-    name = re.sub(r'_asterisk$', '', name)
-    if not name.lower().endswith('.txt'):
-        name = name + '.txt'
-    return name
+    # strip extension if present
+    base = name
+    if base.lower().endswith('.txt'):
+        base = base[:-4]
+    # remove trailing _asterisk (case-insensitive)
+    base = re.sub(r'_asterisk$', '', base, flags=re.I)
+    base = base.strip()
+    outname = base + '.txt'
+    return outname
 
 def write_file(path, lines):
     os.makedirs(os.path.dirname(path) or '.', exist_ok=True)
@@ -111,12 +117,13 @@ def main():
                 seen.add(out)
                 converted.append(out)
 
-        outname = safe_output_name(url)
-        converted_sorted = sorted(converted)
-        write_file(outname, converted_sorted)
-        changelog.append(f"{datetime.utcnow().isoformat()}Z\tOK\t{url}\t{outname}\t{len(converted_sorted)}")
-        print(f"DEBUG: wrote {len(converted_sorted)} entries to {outname}")
-        total_written += len(converted_sorted)
+    outname = safe_output_name(url)           
+    outpath = os.path.join('generated', outname)
+    converted_sorted = sorted(converted)
+    write_file(outpath, converted_sorted)
+    changelog.append(f"{datetime.utcnow().isoformat()}Z\tOK\t{url}\t{outpath}\t{len(converted_sorted)}")
+    print(f"DEBUG: wrote {len(converted_sorted)} entries to {outpath}")
+    total_written += len(converted_sorted)
 
     changelog.append(f"{datetime.utcnow().isoformat()}Z\tMASTER\tTOTAL_ENTRIES\t{total_written}")
     write_file(CHANGELOG_FILE, changelog)
