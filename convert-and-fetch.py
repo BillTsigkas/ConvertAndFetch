@@ -91,12 +91,18 @@ def write_file(path, lines):
 def main():
     whitelist = load_whitelist(WHITELIST_FILE)
     changelog = []
+    total_written = 0
     for url in UPSTREAM_URLS:
         try:
+            # ensure url is a single string
+            if isinstance(url, (list, tuple)):
+                raise ValueError("UPSTREAM_URLS contains a list/tuple element instead of a string")
             raw = fetch_url(url)
         except Exception as e:
             changelog.append(f"{datetime.utcnow().isoformat()}Z\tERROR\t{url}\t{e}")
+            print(f"DEBUG: failed to fetch {url}: {e}")
             continue
+
         seen = set()
         converted = []
         for raw_line in raw.splitlines():
@@ -109,16 +115,17 @@ def main():
             if out not in seen:
                 seen.add(out)
                 converted.append(out)
-        outname = safe_output_name(url)
+
+        outname = safe_output_name(url)  # e.g., "facebook.txt"
         converted_sorted = sorted(converted)
         write_file(outname, converted_sorted)
-        write_file(outname, converted_sorted)
-        print(f"DEBUG: wrote {len(converted_sorted)} entries to {outname}")
-
         changelog.append(f"{datetime.utcnow().isoformat()}Z\tOK\t{url}\t{outname}\t{len(converted_sorted)}")
-    write_file(CHANGELOG_FILE, changelog)
-    print("Done. Wrote per-source files and changelog.")
+        print(f"DEBUG: wrote {len(converted_sorted)} entries to {outname}")
+        total_written += len(converted_sorted)
 
-if __name__ == "__main__":
-    main()
-print("DEBUG: finished convert-and-fetch.py")
+    # final summary
+    changelog.append(f"{datetime.utcnow().isoformat()}Z\tMASTER\tTOTAL_ENTRIES\t{total_written}")
+    write_file(CHANGELOG_FILE, changelog)
+    print("DEBUG: finished convert-and-fetch.py")
+    print(f"Done. Wrote total {total_written} entries across sources.")
+
