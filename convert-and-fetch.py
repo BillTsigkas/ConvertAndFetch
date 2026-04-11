@@ -112,9 +112,13 @@ def main():
         outname = safe_output_name(url)
         converted_sorted = sorted(converted)
         write_file(outname, converted_sorted)
+        write_file(outname, converted_sorted)
+        print(f"DEBUG: wrote {len(converted_sorted)} entries to {outname}")
+
         changelog.append(f"{datetime.utcnow().isoformat()}Z\tOK\t{url}\t{outname}\t{len(converted_sorted)}")
     write_file(CHANGELOG_FILE, changelog)
     print("Done. Wrote per-source files and changelog.")
 
 if __name__ == "__main__":
     main()
+print("DEBUG: finished convert-and-fetch.py")
