@@ -14,6 +14,7 @@ UPSTREAM_URLS = [
     "https://cebeerre.github.io/dnsblocklists/webservices/9gag_asterisk.txt",
     "https://cebeerre.github.io/dnsblocklists/webservices/bluesky_asterisk.txt",
     "https://cebeerre.github.io/dnsblocklists/webservices/facebook_asterisk.txt",
+    "https://cebeerre.github.io/dnsblocklists/webservices/instagram_asterisk.txt",
     "https://cebeerre.github.io/dnsblocklists/webservices/linkedin_asterisk.txt",
     "https://cebeerre.github.io/dnsblocklists/webservices/mail_ru_asterisk.txt",
     "https://cebeerre.github.io/dnsblocklists/webservices/ok_asterisk.txt",
