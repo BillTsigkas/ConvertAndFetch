@@ -20,6 +20,7 @@ SPECIAL_NAMES = {
     "tiktok": "TikTok",
     "whatsapp": "WhatsApp",
     "facebook": "Facebook",
+    "instagram": "Instagram",
     "linkedin": "LinkedIn",
     "pinterest": "Pinterest",
     "reddit": "Reddit",
