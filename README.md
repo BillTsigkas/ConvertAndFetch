@@ -14,6 +14,7 @@ Click the **Raw** link to copy the URL and add it to Pi‑hole → Settings → 
 | **9GAG** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/9gag.txt) |
 | **Bluesky** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/bluesky.txt) |
 | **Facebook** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/facebook.txt) |
+| **Instagram** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/instagram.txt) |
 | **LinkedIn** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/linkedin.txt) |
 | **Mail.ru** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/mail_ru.txt) |
 | **OK** | [Raw](https://raw.githubusercontent.com/BillTsigkas/ConvertAndFetch/main/generated/ok.txt) |
