@@ -1,6 +1,6 @@
 # ConvertAndFetch
 Convert and fetch blocking lists to wildcards in Pihole/AdBlock format.
-The existence of this repo is to categorize social media so that the user has the option of choosing which ones to blog and which not to.
+The existence of this repo is to categorize social media so that the user has the option of choosing which ones to blog and which not to on PiHole for example instead the use of a generic social media block list.
 
 ## ConvertAndFetch Blocklists
 
