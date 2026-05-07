@@ -1,6 +1,5 @@
 # ConvertAndFetch
 Convert and fetch blocking lists to wildcards in Pihole/AdBlock format.
-This repository exists to categorize social media so users can choose which domains to block and which not to. Instead of using a generic social-media blocking list that blocks everything and requires manually unblocking the domains you want to allow, Pi-hole users can now simply click the "Enabled"/"Disabled" button on the "Lists" setup page.
 
 ## ConvertAndFetch Blocklists
 
